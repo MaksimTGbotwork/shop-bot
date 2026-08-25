@@ -7,19 +7,9 @@ from aiogram.types import (
     Message,
 )
 
-from database import add_product, add_to_cart, clear_cart, get_all_products, get_cart
+from database import add_to_cart, clear_cart, get_all_products, get_cart
 
 router = Router()
-
-
-@router.message(Command("seed"))
-async def seed_products(message: Message):
-    await add_product("Обувь Nike", 500)
-    await add_product("Носки Adidas", 40)
-    await add_product("Футболка Gucci", 100)
-    await add_product("Трусы Lacoste", 30)
-    await add_product("Каблуки Versace", 600)
-    await message.answer("Товары добавлены!")
 
 
 @router.message(Command("start"))
