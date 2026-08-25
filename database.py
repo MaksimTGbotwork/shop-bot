@@ -77,15 +77,3 @@ async def clear_cart(telegram_id):
     async with aiosqlite.connect(DB_NAME) as db:
         await db.execute("DELETE FROM cart WHERE telegram_id = ?", (telegram_id,))
         await db.commit()
-
-
-import asyncio
-
-
-async def test():
-    await add_product("Обувь Nike", 500)
-    await add_product("Носки Adidas", 40)
-    await add_product("Футболка Gucci", 100)
-
-
-asyncio.run(test())
